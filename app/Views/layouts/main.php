@@ -161,6 +161,45 @@
             box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
         }
 
+        /* Icon-only button styles for utility & master menus */
+        .nav-icon-only {
+            width: 38px;
+            height: 38px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9px;
+            color: #4B5563;
+            text-decoration: none;
+            transition: all 0.15s ease;
+            flex-shrink: 0;
+        }
+
+        .nav-icon-only i {
+            font-size: 15.5px;
+        }
+
+        .nav-icon-only:hover {
+            color: var(--accent-green);
+            background-color: var(--accent-green-light);
+            transform: translateY(-1px);
+        }
+
+        .nav-icon-only.active {
+            color: #FFFFFF;
+            background-color: var(--accent-green);
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
+        }
+
+        .nav-divider {
+            width: 1px;
+            height: 22px;
+            background: #E5E7EB;
+            margin: 0 4px;
+            flex-shrink: 0;
+        }
+
         /* Distinctive highlight for Kasir POS */
         .nav-link.nav-pos {
             background-color: #ECFDF5;
@@ -607,24 +646,29 @@
                 <a href="<?= base_url('dashboard') ?>" class="nav-link <?= str_contains($uri, 'dashboard') ? 'active' : '' ?>">
                     <i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span>
                 </a>
-                <a href="<?= base_url('produk') ?>" class="nav-link <?= str_contains($uri, 'produk') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-boxes-stacked"></i> <span>Produk</span>
+
+                <div class="nav-divider"></div>
+
+                <a href="<?= base_url('produk') ?>" class="nav-icon-only <?= str_contains($uri, 'produk') ? 'active' : '' ?>" title="Master Produk & Inventaris">
+                    <i class="fa-solid fa-boxes-stacked"></i>
                 </a>
-                <a href="<?= base_url('kategori') ?>" class="nav-link <?= str_contains($uri, 'kategori') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-tags"></i> <span>Kategori</span>
+                <a href="<?= base_url('kategori') ?>" class="nav-icon-only <?= str_contains($uri, 'kategori') ? 'active' : '' ?>" title="Kategori Produk">
+                    <i class="fa-solid fa-tags"></i>
                 </a>
-                <a href="<?= base_url('mutasi') ?>" class="nav-link <?= str_contains($uri, 'mutasi') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-arrow-right-arrow-left"></i> <span>Mutasi Stok</span>
+                <a href="<?= base_url('mutasi') ?>" class="nav-icon-only <?= str_contains($uri, 'mutasi') ? 'active' : '' ?>" title="Log Mutasi & Riwayat Stok">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
                 </a>
-                <a href="<?= base_url('laporan') ?>" class="nav-link <?= str_contains($uri, 'laporan') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-file-invoice-dollar"></i> <span>Laporan</span>
+                <a href="<?= base_url('laporan') ?>" class="nav-icon-only <?= str_contains($uri, 'laporan') ? 'active' : '' ?>" title="Laporan Transaksi & Ekspor Excel">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
                 </a>
-                <a href="<?= base_url('pengguna') ?>" class="nav-link <?= str_contains($uri, 'pengguna') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-users-gear"></i> <span>Pengguna</span>
+                <a href="<?= base_url('pengguna') ?>" class="nav-icon-only <?= str_contains($uri, 'pengguna') ? 'active' : '' ?>" title="Manajemen Pengguna & Hak Akses">
+                    <i class="fa-solid fa-users-gear"></i>
                 </a>
-                <a href="<?= base_url('pengaturan') ?>" class="nav-link <?= str_contains($uri, 'pengaturan') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-sliders"></i> <span>Pengaturan</span>
+                <a href="<?= base_url('pengaturan') ?>" class="nav-icon-only <?= str_contains($uri, 'pengaturan') ? 'active' : '' ?>" title="Pengaturan Toko & Printer Struk">
+                    <i class="fa-solid fa-sliders"></i>
                 </a>
+
+                <div class="nav-divider"></div>
             <?php endif; ?>
 
             <!-- Kasir & Admin sama-sama memiliki akses ke POS -->
