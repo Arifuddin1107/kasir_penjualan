@@ -285,7 +285,7 @@
         </div>
     </div>
 
-    <script>
+       <script>
         function fillCred(user, pass) {
             document.getElementById('username').value = user;
             document.getElementById('password').value = pass;

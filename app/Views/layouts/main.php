@@ -67,68 +67,87 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 24px;
+            padding: 0 20px;
+            gap: 12px;
             box-shadow: 0 1px 3px rgba(5, 150, 105, 0.04);
+            white-space: nowrap;
         }
 
         .brand-logo {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 10px;
             text-decoration: none;
             color: var(--text-primary);
+            flex-shrink: 0;
         }
 
         .brand-icon {
             width: 36px;
             height: 36px;
+            min-width: 36px;
             background: linear-gradient(135deg, #059669 0%, #10B981 100%);
             color: #FFFFFF;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            box-shadow: 0 4px 10px rgba(5, 150, 105, 0.2);
+            font-size: 17px;
+            box-shadow: 0 3px 8px rgba(5, 150, 105, 0.2);
+        }
+
+        .brand-text-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            white-space: nowrap;
         }
 
         .brand-title {
-            font-size: 16px;
+            font-size: 15.5px;
             font-weight: 800;
             letter-spacing: -0.02em;
             color: var(--text-primary);
+            white-space: nowrap;
         }
 
         .brand-badge {
             font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
             color: var(--accent-green);
             background: var(--accent-green-light);
             border: 1px solid var(--accent-green-border);
             padding: 2px 7px;
             border-radius: 9999px;
-            margin-left: 6px;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
+            flex-shrink: 0;
         }
 
         .nav-link {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
+            gap: 6px;
+            padding: 6px 11px;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 600;
-            color: var(--text-muted);
+            color: #4B5563;
+            white-space: nowrap;
+            flex-shrink: 0;
             transition: all 0.15s ease;
+        }
+
+        .nav-link i {
+            font-size: 12.5px;
         }
 
         .nav-link:hover {
@@ -142,31 +161,89 @@
             box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
         }
 
+        /* Distinctive highlight for Kasir POS */
+        .nav-link.nav-pos {
+            background-color: #ECFDF5;
+            color: #059669;
+            border: 1px solid #A7F3D0;
+            font-weight: 700;
+            margin-left: 2px;
+        }
+
+        .nav-link.nav-pos:hover {
+            background-color: #D1FAE5;
+            border-color: #6EE7B7;
+            color: #047857;
+        }
+
+        .nav-link.nav-pos.active {
+            background-color: var(--accent-green);
+            color: #FFFFFF;
+            border-color: var(--accent-green);
+        }
+
         .user-nav {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
+            flex-shrink: 0;
+            white-space: nowrap;
         }
 
-        .role-pill {
+        .user-badge-container {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 11.5px;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            gap: 7px;
+            padding: 4px 10px 4px 6px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            background: #FAFCFA;
+            border: 1px solid #E5E7EB;
+            white-space: nowrap;
         }
 
-        .role-pill.admin {
+        .user-avatar-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            color: #059669;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11.5px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .user-name-text {
+            max-width: 130px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .role-pill-badge {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .role-pill-badge.admin {
             background-color: #ECFDF5;
             color: #059669;
             border: 1px solid #A7F3D0;
         }
 
-        .role-pill.kasir {
+        .role-pill-badge.kasir {
             background-color: #EFF6FF;
             color: #2563EB;
             border: 1px solid #BFDBFE;
@@ -175,9 +252,18 @@
         .btn-logout {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 7px 14px;
-            font-size: 12.5px;
+            gap: 5px;
+            padding: 6px 11px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #DC2626;
+            background: #FEF2F2;
+            border: 1px solid #FECACA;
+            border-radius: 8px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.15s ease;
+        }
             font-weight: 600;
             color: #DC2626;
             background: #FEF2F2;
@@ -428,7 +514,7 @@
         @media (max-width: 900px) {
             .grid-4 { grid-template-columns: repeat(2, 1fr); }
             .grid-3 { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+            .top-navbar { overflow-x: auto; }
         }
 
         /* Modals */
@@ -507,9 +593,9 @@
             <div class="brand-icon">
                 <i class="fa-solid fa-feather-pointed"></i>
             </div>
-            <div>
+            <div class="brand-text-wrap">
                 <span class="brand-title">Antigravity Retail</span>
-                <span class="brand-badge">CI4 POS</span>
+                <span class="brand-badge">POS CI4</span>
             </div>
         </a>
 
@@ -519,42 +605,49 @@
             
             <?php if (session()->get('role') === 'admin'): ?>
                 <a href="<?= base_url('dashboard') ?>" class="nav-link <?= str_contains($uri, 'dashboard') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-chart-pie"></i> Dashboard
+                    <i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span>
                 </a>
                 <a href="<?= base_url('produk') ?>" class="nav-link <?= str_contains($uri, 'produk') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-boxes-stacked"></i> Produk
+                    <i class="fa-solid fa-boxes-stacked"></i> <span>Produk</span>
                 </a>
                 <a href="<?= base_url('kategori') ?>" class="nav-link <?= str_contains($uri, 'kategori') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-tags"></i> Kategori
+                    <i class="fa-solid fa-tags"></i> <span>Kategori</span>
                 </a>
                 <a href="<?= base_url('mutasi') ?>" class="nav-link <?= str_contains($uri, 'mutasi') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-arrow-right-arrow-left"></i> Mutasi Stok
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i> <span>Mutasi Stok</span>
                 </a>
                 <a href="<?= base_url('laporan') ?>" class="nav-link <?= str_contains($uri, 'laporan') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-file-invoice-dollar"></i> Laporan
+                    <i class="fa-solid fa-file-invoice-dollar"></i> <span>Laporan</span>
                 </a>
                 <a href="<?= base_url('pengguna') ?>" class="nav-link <?= str_contains($uri, 'pengguna') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-users-gear"></i> Pengguna
+                    <i class="fa-solid fa-users-gear"></i> <span>Pengguna</span>
                 </a>
                 <a href="<?= base_url('pengaturan') ?>" class="nav-link <?= str_contains($uri, 'pengaturan') ? 'active' : '' ?>">
-                    <i class="fa-solid fa-sliders"></i> Pengaturan
+                    <i class="fa-solid fa-sliders"></i> <span>Pengaturan</span>
                 </a>
             <?php endif; ?>
 
             <!-- Kasir & Admin sama-sama memiliki akses ke POS -->
-            <a href="<?= base_url('pos') ?>" class="nav-link <?= str_contains($uri, 'pos') ? 'active' : '' ?>">
-                <i class="fa-solid fa-cash-register"></i> Kasir POS
+            <a href="<?= base_url('pos') ?>" class="nav-link nav-pos <?= str_contains($uri, 'pos') ? 'active' : '' ?>">
+                <i class="fa-solid fa-cash-register"></i> <span>Kasir POS</span>
             </a>
         </nav>
 
         <!-- User Profile & Logout -->
         <div class="user-nav">
-            <span class="role-pill <?= esc(session()->get('role')) ?>">
-                <i class="fa-solid fa-user-circle"></i>
-                <?= esc(session()->get('nama_lengkap') ?? session()->get('username')) ?> (<?= esc(session()->get('role')) ?>)
-            </span>
+            <div class="user-badge-container">
+                <div class="user-avatar-circle">
+                    <?= strtoupper(substr(session()->get('nama_lengkap') ?? session()->get('username') ?? 'U', 0, 1)) ?>
+                </div>
+                <span class="user-name-text" title="<?= esc(session()->get('nama_lengkap') ?? session()->get('username')) ?>">
+                    <?= esc(session()->get('nama_lengkap') ?? session()->get('username')) ?>
+                </span>
+                <span class="role-pill-badge <?= esc(session()->get('role')) ?>">
+                    <?= strtoupper(esc(session()->get('role'))) ?>
+                </span>
+            </div>
             <a href="<?= base_url('logout') ?>" class="btn-logout" title="Keluar">
-                <i class="fa-solid fa-right-from-bracket"></i> Keluar
+                <i class="fa-solid fa-right-from-bracket"></i> <span>Keluar</span>
             </a>
         </div>
     </header>
